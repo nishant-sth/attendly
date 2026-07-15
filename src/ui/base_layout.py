@@ -41,7 +41,22 @@ def style_background_dashboard():
         <style>
 
                 .stApp {
-                    background: #E0E3FF !important;
+                    background: radial-gradient(circle at 12% 10%, rgba(255,255,255,0.16), transparent 40%),
+                                radial-gradient(circle at 88% 84%, rgba(255,95,162,0.22), transparent 46%),
+                                linear-gradient(150deg, #6C5CE7 0%, #5865F2 45%, #2E22B0 100%) !important;
+                    background-attachment: fixed !important;
+                }
+
+                .st-key-portal_cards{
+                    background-color: rgba(250,220,245,0.22) !important;
+                    backdrop-filter: blur(10px) !important;
+                    -webkit-backdrop-filter: blur(10px) !important;
+                    border: 1px solid rgba(255,255,255,0.25) !important;
+                    padding: 2.3rem 2rem !important;
+                    border-radius: 1.4rem !important;
+                    text-align:center;
+                    width: 54% !important;
+                    transition: transform 0.25s ease-in-out;
                 }
 
         </style>  
@@ -72,6 +87,7 @@ def style_base_layout():
             h1 {
                 font-family: 'Climate Crisis', sans-serif !important;
                 font-size: 3.5rem !important;
+                color: white !important;
                 line-height:1.05 !important;
                 margin-bottom:0rem !important;
             }
@@ -85,15 +101,19 @@ def style_base_layout():
             }
 
             h3, h4, p {
-                font-family: 'Outfit', sans-serif;
+                font-family:'Outfit', sans-serif !important;
+                color: white !important;
             }
 
-
-            button{
+            /* kind="primary" */
+            button{     
                 border-radius: 1.5rem !important;
                 background-color: #5865F2 !important;
+                background: rgba(255,255,255,0.15);
                 color: white !important;
-                padding: 10px 20px !important;
+                font-family:'Outfit', sans-serif;
+                font-size:12px;
+                padding:6px 16px;
                 border: none !important;
                 transition: transform 0.25s ease-in-out !important;
                 }
@@ -149,11 +169,10 @@ def style_base_layout():
                 border: 1px solid rgba(255,255,255,0.3);
                 color:#fff;
                 font-family:'Outfit', sans-serif;
-                font-size:12px;
+                font-size:15px;
                 padding:6px 16px;
                 border-radius:999px;
             }
-
             /* --- hero --- */
             .hero-badge{
                 display:inline-block;
@@ -223,6 +242,16 @@ def style_base_layout():
                 font-size:1.4rem;
                 display:block;
                 margin-bottom:4px;
+            }
+                
+            .st-key-home_button_container div.stButton > button {
+                background: rgba(255,255,255,.15) !important;
+                border: 1px solid rgba(255,255,255,.30) !important;
+                border-radius: 999px !important;
+                font-size:12px !important;
+                padding:6px 16px !important;
+                margin-top: 2rem !important;
+                font-size: 1rem;
             }
 
         </style>  

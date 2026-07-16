@@ -253,6 +253,14 @@ def style_base_layout():
                 margin-top: 2rem !important;
                 font-size: 1rem;
             }
+            div[data-testid="stToast"] {
+                background-color: #c3e9f4 !important;
+                color: black !important;
+                border-left: 3px solid black !important;
+            }
+            div[data-testid="stToast"] * {
+                color: black !important;
+            }
 
         </style>  
 

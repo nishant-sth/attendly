@@ -7,7 +7,7 @@ def hash_pass(password):
 
 # Password Validation
 def validate_password(pwd, hashed):
-    return bcrypt.checkpw(pwd.encode(), hashed.code())
+    return bcrypt.checkpw(pwd.encode(), hashed.encode())
 
 def check_teacher_exits(username):
     # check the unique username, return false when username already taken 

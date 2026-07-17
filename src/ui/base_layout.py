@@ -261,7 +261,20 @@ def style_base_layout():
             div[data-testid="stToast"] * {
                 color: black !important;
             }
+            /* Camera: larger and remove white side panels */
+            div[data-testid="stCameraInput"] {
+                width: min(765px, 92vw) !important;
+                max-width: 765px !important;
+                margin: 0 auto !important;
+                padding: 0 !important;
+                background: transparent !important;
+                border: none !important;
+                box-shadow: none !important;
+                overflow: hidden !important;
+                border-radius: 2px !important;
+            }
 
+            
         </style>  
 
                 """

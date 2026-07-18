@@ -2,7 +2,7 @@
 numpy
 pandas
 
-# face-recognition
+# face-recognition modules
 scikit-learn
 dlib-bin
 git+https://github.com/ageitgey/face_recognition_models
@@ -16,3 +16,7 @@ segno
 pillow
 
 streamlit
+
+# voice/audio processing 
+librosa
+speechbrain 

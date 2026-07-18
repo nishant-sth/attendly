@@ -1,6 +1,7 @@
 .env
 .vscode
 .venv/
+attendly_venv/
 
 *.pyc
 .DS_store

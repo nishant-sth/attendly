@@ -9,10 +9,13 @@ def teacher_screen():
     header_dashboard()
     style_background_dashboard()
     style_base_layout()
+
     if 'is_logged_in' in st.session_state:
         teacher_dashboard()
-    elif 'teacher_login_type' not in st.session_state or st.session_state.teacher_login_type == "login":
+
+    elif 'teacher_login_type' not in st.session_state or st.session_state.teacher_login_type=="login":
         teacher_screen_login()
+        
     elif st.session_state.teacher_login_type == "register":
         teacher_screen_register()
 

@@ -248,11 +248,22 @@ def style_base_layout():
                 background: rgba(255,255,255,.15) !important;
                 border: 1px solid rgba(255,255,255,.30) !important;
                 border-radius: 999px !important;
-                font-size:12px !important;
-                padding:6px 16px !important;
-                margin-top: 2rem !important;
-                font-size: 1rem;
+                font-size: 0.8rem !important;
+                padding: 4px 10px !important;
+                margin-top: 3rem !important;
+                min-height: 28px !important;
+                line-height: 1.2 !important;
             }
+
+            
+            .st-key-manage-subjects-container {
+                background-color: #4f4858 !important;
+                border: 1px solid rgba(0, 112, 23, 0.18) !important;
+                border-radius: 16px !important;
+                padding: 1rem 1.2rem !important;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+            }
+                
             div[data-testid="stToast"] {
                 background-color: #c3e9f4 !important;
                 color: black !important;
@@ -273,8 +284,20 @@ def style_base_layout():
                 overflow: hidden !important;
                 border-radius: 2px !important;
             }
-
             
+            # /* create subject dialog*/
+            div[data-testid="stDialog"] {
+                background: transparent !important;
+            }
+            
+            div[data-testid="stDialog"] h1,
+            div[data-testid="stDialog"] h2,
+            div[data-testid="stDialog"] p,
+            div[data-testid="stDialog"] label {
+                color: #2d2d2d !important;
+            }
+
+
         </style>  
 
                 """

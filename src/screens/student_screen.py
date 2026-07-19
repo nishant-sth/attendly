@@ -71,7 +71,7 @@ def student_screen():
             except Exception:
                 st.error("Audio data failed!")
 
-            if st.button('Create Account', type="primary"):
+            if st.button('Create Account', type="secondary"):
                 if not new_name:
                     st.error("Please enter your name")
                 else:

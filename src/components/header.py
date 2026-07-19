@@ -60,5 +60,5 @@ def header_dashboard():
         """, unsafe_allow_html=True)
     with col2:
         with st.container(key="home_button_container"):
-            if st.button("Go back to Home", key="home_btn"):
+            if st.button("Go back to Home", key="home_btn", icon=":material/home:", icon_position="right"):
                 back_to_home()

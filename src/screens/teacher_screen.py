@@ -59,6 +59,7 @@ def teacher_dashboard():
             st.session_state['current_teacher_tab'] = 'attendence_records'
             st.rerun()
     
+    st.space()
     if st.session_state['current_teacher_tab'] == 'take_attendence':
         teacher_tab_take_attendence()
     if st.session_state['current_teacher_tab'] == 'manage_subjects':

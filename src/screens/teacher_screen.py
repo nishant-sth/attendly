@@ -13,21 +13,30 @@ def teacher_screen():
     style_background_dashboard()
     style_base_layout()
 
-    if 'is_logged_in' in st.session_state:
+    st.session_state.setdefault('teacher_login_type', 'login')
+    st.session_state.setdefault('teacher_data', None)
+    st.session_state.setdefault('is_logged_in', False)
+
+    if st.session_state.get('is_logged_in') and st.session_state.get('user_role') == 'teacher':
         teacher_dashboard()
 
-    elif 'teacher_login_type' not in st.session_state or st.session_state.teacher_login_type=="login":
-        teacher_screen_login()
-        
-    elif st.session_state.teacher_login_type == "register":
+    elif st.session_state.get('teacher_login_type') == 'register':
         teacher_screen_register()
+
+    else:
+        teacher_screen_login()
     
     st.space(size="xlarge")
     st.divider()
     footer()
 
 def teacher_dashboard():
-    teacher_data = st.session_state.teacher_data
+    teacher_data = st.session_state.get('teacher_data')
+
+    if not teacher_data:
+        st.session_state['teacher_login_type'] = 'login'
+        teacher_screen_login()
+        return
 
     # if st.button("Logout", key='logoutbtn', shortcut='control+backspace'):
     #     st.session_state['is_logged_in'] = False
@@ -86,9 +95,9 @@ def teacher_login(username, password):
     teacher = db.login_teacher(username, password)
 
     if teacher:
-        st.session_state.user_role = 'teacher'
-        st.session_state.teacher_data = teacher
-        st.session_state.is_logged_in = True
+        st.session_state['user_role'] = 'teacher'
+        st.session_state['teacher_data'] = teacher
+        st.session_state['is_logged_in'] = True
         return True
     return False
 

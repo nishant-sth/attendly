@@ -6,7 +6,7 @@ import io
 
 @st.dialog("Share Class Link")
 def share_subject(subject_name, subject_code):
-    app_domain = "attendly-main.streamlit.app"
+    app_domain = "http://localhost:8501/"
     join_url = f"{app_domain}/?join-code={subject_code}"
 
     st.header("Scan to Join")

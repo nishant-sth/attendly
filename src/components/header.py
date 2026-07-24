@@ -3,13 +3,13 @@ import streamlit as st
 
 def header_home():
 
-    logo_url = "https://i.ibb.co/YTYGn5qV/logo.png"
+    logo_url = "https://i.ibb.co/Mk3vMhh5/Screenshot-2026-07-24-235727.png"
 
     # top navigation bar
     st.markdown(f"""
         <div class="navbar">
             <div class="nav-left">
-                <img src='{logo_url}' />
+                <img src='{logo_url}' style='height:40px; border-radius:0.5rem;'/>
                 <span class="nav-brand">Attendly.</span>
             </div>
             <div class="nav-links">

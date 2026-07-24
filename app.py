@@ -5,6 +5,10 @@ from src.screens.student_screen import student_screen
 from src.components.auto_enroll_subject_dialog import auto_enroll_in_subject_dialog
 
 def main():
+    st.set_page_config(
+        page_title="Attendly - Making attendence faster using AI",
+        page_icon="https://i.ibb.co/Mk3vMhh5/Screenshot-2026-07-24-235727.png"
+    )
     if 'login_type' not in st.session_state:
         st.session_state['login_type'] = None
 

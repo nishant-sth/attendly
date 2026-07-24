@@ -16,6 +16,7 @@ decorator==5.3.1
 deprecation==2.1.0
 dlib-bin==20.0.1
 face_recognition_models @ git+https://github.com/ageitgey/face_recognition_models@e67de717267507d1e9246de95692eb8be736ab61
+setuptools==68.0.0
 filelock==3.31.0
 fsspec==2026.6.0
 gitdb==4.0.12

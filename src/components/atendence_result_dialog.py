@@ -2,8 +2,7 @@ from PIL import Image
 import streamlit as st
 from src.database.db import create_attendence
 
-@st.dialog("Attendence Reports")
-def attendence_results_dialog(df, logs):
+def show_attendence_results(df, logs):
     st.write('Please review attendence before confirming')
     st.dataframe(df, hide_index=True, width="stretch")
 
@@ -11,6 +10,8 @@ def attendence_results_dialog(df, logs):
 
     with col1:
         if st.button('Discard', width="stretch"):
+            st.session_state.voice_attendence_results = None
+            st.session_state.attendence_images = []
             st.rerun()
 
     with col2:
@@ -19,7 +20,13 @@ def attendence_results_dialog(df, logs):
                 create_attendence(logs)
                 st.toast("Attendence Taken")
                 st.session_state.attendence_images = []
+                st.session_state.voice_attendence_results = None
                 st.rerun()
             except Exception as e:
                 st.error("Sync Failed!")
-                
+                    
+
+
+@st.dialog("Attendence Reports")
+def attendence_results_dialog(df, logs):
+    show_attendence_results(df, logs)

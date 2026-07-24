@@ -6,6 +6,7 @@ from src.components.share_subject_qr import share_subject
 from src.components.add_photo_dialog import add_photos_dialog
 from src.pipelines.face_pipeline import predict_attendence
 from src.components.atendence_result_dialog import attendence_results_dialog
+from src.components.voice_attendence_dialog import voice_attendence_dialog
 from src.database.config import supabase
 from datetime import datetime
 import numpy as np
@@ -105,8 +106,8 @@ def teacher_tab_take_attendence():
                 attendence_results_dialog(pd.DataFrame(results), attendence_to_log)
 
     with c3:
-        if st.button("Use Voice Attendence", type="primary", width="stretch", icon=":material/mic:",  disabled= not has_photos):
-            voice_attendence_dialog()
+        if st.button("Use Voice Attendence", type="primary", width="stretch", icon=":material/mic:"):
+            voice_attendence_dialog(selected_subject_id)
 
 
 

@@ -43,7 +43,9 @@ def create_student(name, face_embedding=None, voice_embedding=None):
         "voice_embedding": voice_embedding
     }
     response = supabase.table("students").insert(data).execute()
-    return response.data
+    if response.data:
+        return response.data[0]
+    return None
 
 def create_subject(subject_code, name, section, teacher_id):
     data = {

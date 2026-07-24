@@ -13,7 +13,17 @@ from src.components.enroll_subject_dialog import create_enroll_in_subject_dialog
 from src.components.subject_card import subject_card
 
 def student_dashboard():
-    student_data = st.session_state.student_data
+    student_data = st.session_state.get('student_data')
+    if isinstance(student_data, list):
+        student_data = student_data[0] if student_data else None
+
+    if not student_data:
+        st.session_state['login_type'] = None
+        st.session_state.pop('student_data', None)
+        st.warning("Student session expired. Please log in again.")
+        st.rerun()
+        return
+
     st.subheader("Student Dashboard", text_alignment="center")
 
     col1, col2 = st.columns(2)

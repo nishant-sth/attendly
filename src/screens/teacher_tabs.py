@@ -5,7 +5,7 @@ from src.components.subject_card import subject_card
 from src.components.share_subject_qr import share_subject
 from src.components.add_photo_dialog import add_photos_dialog
 from src.pipelines.face_pipeline import predict_attendence
-from src.components.atendence_result_dialog import attendence_results_dialog
+from src.components.attendence_result_dialog import attendence_results_dialog
 from src.components.voice_attendence_dialog import voice_attendence_dialog
 from src.database.config import supabase
 from datetime import datetime

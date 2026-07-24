@@ -3,7 +3,7 @@ from src.pipelines.voice_pipeline import process_bulk_audio
 from src.database.config import supabase
 from datetime import datetime
 import pandas as pd
-from src.components.atendence_result_dialog import show_attendence_results
+from src.components.attendence_result_dialog import show_attendence_results
 
 @st.dialog("Voice Attendence")
 def voice_attendence_dialog(selected_subject_id):

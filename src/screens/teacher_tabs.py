@@ -8,6 +8,7 @@ from src.pipelines.face_pipeline import predict_attendence
 from src.components.attendence_result_dialog import attendence_results_dialog
 from src.components.voice_attendence_dialog import voice_attendence_dialog
 from src.database.config import supabase
+from src.database.db import get_attendence_for_teacher
 from datetime import datetime
 import numpy as np
 import pandas as pd
@@ -149,5 +150,45 @@ def teacher_tab_manage_subjects():
         else:
             st.info("NO SUBJECTS FOUND. CREATE ONE ABOVE")
 
+
+
 def teacher_tab_attendence_records():
     st.subheader("Attendence Records")
+
+    teacher_id = st.session_state.get('teacher_data')['teacher_id']
+
+    records = get_attendence_for_teacher(teacher_id)
+
+    if not records:
+        return 
+
+    data = []
+
+    for r in records:
+        ts = r.get('timestamp')
+
+        data.append({
+            'ts_group': ts.split(".")[0] if ts else None,
+            'Time' : datetime.fromisoformat(ts).strftime("%Y-%m-%d %I:%M %p") if ts else "N/A",
+            'Subject' : r['subjects']['name'],
+            'Subject Code' : r['subjects']['subject_code'],
+            'is_present' : bool(r.get('is_present', False))
+        })
+    df = pd.DataFrame(data)
+
+    summary = (
+        df.groupby(['ts_group', 'Time', 'Subject', 'Subject Code'])
+        .agg(
+            Present_count = ('is_present', 'sum'),
+            Total_count = ('is_present', 'count')
+        ).reset_index()
+    )
+
+    summary['Attendence Stats'] = (
+        "✅ " + summary["Present_count"].astype(str) + "/ " + summary["Total_count"].astype(str) + " Students"
+    )
+
+    display_df = (summary.sort_values(by='ts_group', ascending=False)
+                  [['Time', 'Subject', 'Subject Code', 'Attendence Stats']])
+
+    st.dataframe(display_df, width="stretch", hide_index=True)

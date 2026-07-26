@@ -47,7 +47,7 @@ def back_to_home():
     st.rerun()
 
 def header_dashboard():
-    logo_url = "https://i.ibb.co/YTYGn5qV/logo.png"
+    logo_url = "https://i.ibb.co/Mk3vMhh5/Screenshot-2026-07-24-235727.png"
     col1, col2 = st.columns([9, 2])
     with col1:
         st.markdown(f"""
